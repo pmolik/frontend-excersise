@@ -1,11 +1,13 @@
-<div class="row" style="background-color: #3c763d; height: 30%">
-  <div class="col-md-4 text-center" (click)="onHomeClick()" style="color: white; margin-top: 0.5%;margin-bottom: 1%; font-weight: bold; font-size: 15px">
-    <h1 style="cursor: pointer">Frontend Excersise</h1>
-  </div>
-  <div class="col-md-4 text-center" (click)="onPageOneClick()" style="color: white; margin-top: 2%;margin-bottom: 2%">
-    <a style="cursor: pointer; color: white">Page One</a>
-  </div>
-  <div class="col-md-4 text-center" (click)="onPageTwoClick()" style="color: white; margin-top: 2%;margin-bottom: 2%">
-    <a style="cursor: pointer; color: white">Page Two</a>
+<div class="container-fluid">
+  <div class="row" id="header">
+    <div class="col-md-4 text-center title" (click)="onHomeClick()">
+      <h1 style="cursor: pointer">Frontend Excersise</h1>
+    </div>
+    <div class="col-md-4 text-center" (click)="onPageOneClick()">
+      <a>Page One</a>
+    </div>
+    <div class="col-md-4 text-center" (click)="onPageTwoClick()">
+      <a>Page Two</a>
+    </div>
   </div>
 </div>

@@ -4,6 +4,7 @@ import {AppState} from '../store/state';
 import {Store} from '@ngrx/store';
 import {SetUser} from '../store/actions';
 import {User} from '../interfaces/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-one',
@@ -16,7 +17,8 @@ export class PageOneComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       name: ['', Validators.pattern('[\\D]*')],
@@ -26,7 +28,6 @@ export class PageOneComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.form.value);
     this.user = this.form.value;
     this.store.dispatch(new SetUser({
         name: this.form.value.name,
@@ -34,6 +35,7 @@ export class PageOneComponent implements OnInit {
         age: this.form.value.age
       })
     );
+    this.router.navigate(['page/two']);
   }
 
   ngOnInit() {

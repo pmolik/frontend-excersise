@@ -1,63 +1,70 @@
-<div class="row">
-  <div class="col-lg-4">
-    <div class="container">
-      <h1>User Data</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="container">
+        <h1>User Data</h1>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row" style="margin-bottom: 10%">
-  <div class="col-lg-12">
-    <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
-      <div class="row" style="padding: 20px">
-        <div class="col-lg-3 text-center">
-          Name:
+  <div class="row page-one">
+    <div class="col-lg-12">
+      <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+        <div class="row forms">
+          <div class="col-lg-3 text-center">
+            Name:
+          </div>
+          <div class="col-lg-3 text-center">
+            <input type="text" formControlName="name">
+          </div>
+          <div class="col-lg-6 text-center">
+            <span class="error"
+                  *ngIf="form.controls.name.invalid && form.controls.name.dirty">Invalid character !</span>
+          </div>
         </div>
-        <div class="col-lg-3 text-center">
-          <input type="text" formControlName="name" style="width: 100%">
-        </div>
-        <div class="col-lg-6 text-center">
-          <span *ngIf="form.controls.name.invalid && form.controls.name.dirty" style="color: red">Invalid character !</span>
-        </div>
-      </div>
 
-      <div class="row" style="padding: 20px">
-        <div class="col-lg-3 text-center">
-          Surname:
+        <div class="row forms">
+          <div class="col-lg-3 text-center">
+            Surname:
+          </div>
+          <div class="col-lg-3 text-center">
+            <input type="text" formControlName="surname">
+          </div>
+          <div class="col-lg-6 text-center">
+          <span class="error"
+                *ngIf="form.controls.surname.invalid && form.controls.surname.dirty">Invalid character !</span>
+          </div>
         </div>
-        <div class="col-lg-3 text-center">
-          <input type="text" formControlName="surname" style="width: 100%">
-        </div>
-        <div class="col-lg-6 text-center">
-          <span *ngIf="form.controls.surname.invalid && form.controls.surname.dirty" style="color: red">Invalid character !</span>
-        </div>
-      </div>
 
-      <div class="row" style="padding: 20px">
-        <div class="col-lg-3 text-center">
-          Age:
+        <div class="row forms">
+          <div class="col-lg-3 text-center">
+            Age:
+          </div>
+          <div class="col-lg-3 text-center">
+            <input type="text" formControlName="age">
+          </div>
+          <div class="col-lg-6 text-center">
+            <span class="error" *ngIf="form.controls.age.invalid && form.controls.age.dirty">Invalid character !</span>
+          </div>
         </div>
-        <div class="col-lg-3 text-center">
-          <input type="text" formControlName="age" style="width: 100%">
-        </div>
-        <div class="col-lg-6 text-center">
-          <span *ngIf="form.controls.age.invalid && form.controls.age.dirty" style="color: red">Invalid character !</span>
-        </div>
-      </div>
 
-      <div class="row"
-           *ngIf="form.controls.name.valid && form.controls.name.dirty && form.controls.name.value !== ''
-       && form.controls.surname.valid && form.controls.surname.dirty && form.controls.surname.value !== ''" style="background-color: #428bca; margin-left: 10%; margin-right: 10%; height: 10%; padding: 2%">
-        <div class="col-lg-12 text-center">
-          Hello {{this.form.get('name').value}} {{this.form.get('surname').value}}
+        <div class="row"
+             *ngIf="form.controls.name.valid && form.controls.name.dirty && form.controls.name.value !== ''
+            && form.controls.surname.valid && form.controls.surname.dirty && form.controls.surname.value !== ''"
+             id="hello-banner">
+          <div class="col-lg-12 text-center">
+            Hello {{this.form.get('name').value}} {{this.form.get('surname').value}} !
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <button class="btn btn-success" type="submit" style="width: 15%;margin: 20px">Save</button>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <button class="btn btn-success" type="submit" id="save" [disabled]="form.controls.name.value === '' || form.controls.surname.value === '' || form.controls.age.value === ''
+          || form.controls.name.invalid || form.controls.surname.invalid || form.controls.age.invalid">Save
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>

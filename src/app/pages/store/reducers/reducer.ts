@@ -6,7 +6,11 @@ export interface State {
 }
 
 const initialState: State = {
-  user: null
+  user: {
+    name: null,
+    surname: null,
+    age: null
+  }
 };
 
 export function reducer(state = initialState, action: All) {
