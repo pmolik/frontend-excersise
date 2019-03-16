@@ -13,11 +13,4 @@ export class SetUser implements Action {
   }
 }
 
-export class SetUserSuccess implements Action {
-  readonly type = UserManagementActionTypes.SET_USER_SUCCESS;
-
-  constructor(public payload: any) {
-  }
-}
-
-export type All = SetUser | SetUserSuccess;
+export type All = SetUser;
